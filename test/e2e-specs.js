@@ -650,7 +650,7 @@ const tests = [
     func: function (resolve, reject) { cordova.plugin.http.post('http://httpbin.org/anything', { testString: '/' }, {}, resolve, reject); },
     validationFunc: function (driver, result) {
       result.type.should.be.equal('resolved');
-      JSON.parse(result.data.data).json.testString.should.be.equal('/');
+      result.data.data.should.be.equal('{"testString": "/"}');
     }
   },
   {
